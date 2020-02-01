@@ -1,0 +1,163 @@
+<form autocomplete="off" #form="ngForm" (change)="debug(form)" (ngSubmit)="osluskivanjeForme(form.value)">
+    <fieldset>
+
+<legend>Informacije o automobilima</legend>
+
+
+
+<div class="form-group form-inline col-md-7">
+    <input type="hidden" [(ngModel)]="auto.id" name="id">
+    <label for="brend_auta">Brend automobila</label>
+    <input class="form-control" required type="text" minlength="3" maxlength="50"  [(ngModel)]="auto.brend_auta" #brend_auta="ngModel"   id="brend_auta"name="brend_auta" >
+
+    <div *ngIf="brend_auta.invalid && (brend_auta.touched || brend_auta.dirty)">
+
+        <p class="text-danger" *ngIf="brend_auta.errors.required">Unesite dobru vrednost </p>
+        <p *ngIf="brend_auta.errors.maxlength" class=text-danger>Maksimalno je 50 slova </p>
+        <p *ngIf="brend_auta.errors.minlength" class=text-danger>Minimalno je 3 slova </p>
+    
+    </div>
+
+</div>
+
+
+
+<div class="form-group form-inline col-md-7">
+    <label for="model_auta">Model automobila</label>
+    <input class="form-control" required type="text" minlength="3" maxlength="50" #model_auta="ngModel" [(ngModel)]="auto.model_auta"  id="model_auta"name="model_auta">
+
+    <div *ngIf="model_auta.invalid && (model_auta.touched || model_auta.dirty)">
+
+        <p class="text-danger" *ngIf="model_auta.errors.required" >Unesite dobru vrednost </p>
+        <p *ngIf="model_auta.errors.maxlength" class=text-danger>Maksimalno je 50 slova </p>
+        <p *ngIf="model_auta.errors.minlength" class=text-danger>Minimalno je 3 slova </p>
+    
+    </div>
+</div>
+
+<div class="clearfix">
+
+</div>
+
+<div class="form-group form-inline col-md-7">
+    <label for="godina_auta">Godina proizvodnje</label>
+    <input class="form-control" required type="number"   [(ngModel)]="auto.godina_auta" #godina_auta="ngModel" id="godina_auta"name="godina_auta">
+
+    <div *ngIf="godina_auta.invalid && (godina_auta.touched || godina_auta.dirty)">
+
+        <p class="text-danger" *ngIf="godina_auta.errors.required">Unesite dobru vrednost </p>
+    
+    </div>
+
+</div>
+
+
+
+<div class="form-group form-inline col-md-7">
+    <label for="cena_auta">Cena automobila</label>
+    <input class="form-control" required type="number"   [(ngModel)]="auto.cena_auta"  #cena_auta="ngModel" id="cena_auta"name="cena_auta">
+
+    <div *ngIf="cena_auta.invalid && (cena_auta.touched || cena_auta.dirty)">
+
+        <p class="text-danger" *ngIf="cena_auta.errors.required">Unesite dobru vrednost </p>
+    
+    </div>
+
+</div>
+
+
+
+<div class="form-group form-inline col-md-7">
+    <label for="kilometraza_auta">Kilometraza automobila:</label>
+    <input class="form-control" required type="number"     [(ngModel)]="auto.kilometraza_auta" #kilometraza_auta="ngModel"  id="kilometraza_auta" name="kilometraza_auta">
+
+    <div *ngIf="kilometraza_auta.invalid && (kilometraza_auta.touched || kilometraza_auta.dirty)">
+
+        <p class="text-danger" *ngIf="kilometraza_auta.errors.required">Unesite dobru vrednost </p>
+    
+    </div>
+
+
+</div>
+
+<div class="clearfix"></div>
+    </fieldset>
+
+    <fieldset ngModelGroup="Motor">
+        <legend>Informacije o motoru</legend>
+        
+        <div class="form-group col-md-12">
+
+            <label for="gorivo_motora">Gorivo motora</label>
+            <select class="form-control" required [(ngModel)] = "auto.motor_auta.gorivo_motora" #gorivo_motora="ngModel" name="gorivo_motora" id="gorivo_motora">
+
+<option value="">Izaberite gorivo</option>
+<option value="benzin">Benzin</option>
+<option value="dizel">Dizel</option>
+<option value="elektrican">Elektrican</option>
+
+
+
+            </select>
+            
+    <div *ngIf="gorivo_motora.invalid && (gorivo_motora.touched || gorivo_motora.dirty)">
+
+        <p class="text-danger" *ngIf="gorivo_motora.errors.required">Unesite dobru vrednost </p>
+    
+    </div>
+            
+
+
+        </div>
+        <div class="form-group col-md-7">  
+
+
+            <label for="snaga_motora">Snaga motora</label>
+    <input class="form-control" required type="number" max="250" #snaga_motora="ngModel"  [(ngModel)]="auto.motor_auta.snaga_motora"    id="snaga_motora"name="snaga_motora">
+        
+    <div *ngIf="snaga_motora.invalid && (snaga_motora.touched || snaga_motora.dirty)">
+
+    <p class="text-danger" *ngIf="snaga_motora.errors.required">Unesite dobru vrednost </p>
+    <p class="text-danger"*ngIf="snaga_motora.errors.required">Maksimalna snaga motora je 250 konja </p>
+
+</div>
+</div>
+        <div class="form-group col-md-7">
+
+            
+            <label for="potrosnja_motora">Potrosnja motora</label>
+            <input class="form-control" required type="number" max="25" #potrosnja_motora="ngModel"  [(ngModel)]="auto.motor_auta.potrosnja_motora"    id="potrosnja_motora"name="potrosnja_motora">
+
+   
+            <div *ngIf="potrosnja_motora.invalid && (potrosnja_motora.touched || potrosnja_motora.dirty)">
+
+                <p *ngIf="potrosnja_motora.errors.required" class=text-danger>Unesite dobru vrednost </p>
+                <p *ngIf="potrosnja_motora.errors.max" class=text-danger>Maksimalna potrosnja je 25 litara </p>
+            
+            </div>
+
+
+
+
+        </div>
+
+
+
+
+    </fieldset>
+
+
+
+
+<div class="btn-group ">
+
+    <button class="btn btn-primary"  type="submit"> {{ isAddAction(auto.id) ? 'Dodaj ' : 'Edit'}} </button>
+    <button class="btn btn-danger" type="reset">Resetuj</button>
+    
+</div>
+
+
+</form>
+
+
+<h2 class="sakriveni_json">{{form.value | json }}</h2>

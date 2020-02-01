@@ -1,0 +1,44 @@
+<h3>Lista automobila</h3>
+
+
+<div class="container">
+        <div class="row">
+                <div class="col-md-7">
+                <div *ngFor ="let auto of automobili" class="calss panel-info">
+
+                 <div class="panel-heading">{{auto.brend_auta}} {{auto.model_auta}} - {{auto.godina_auta}} 
+                         
+
+                 </div>
+                <div class="panel body"></div>
+                <div class="card">
+                        <div class="card-body">
+                         <ul class="list-group">
+                             <li class="list-item" >Kilometraza: {{auto.kilometraza_auta}} KM  </li>
+                             <li class="list-item">Godiste: {{auto.godina_auta}} Godiste</li>
+                             <li class="list-item">Cena:{{auto.cena_auta | currency:'EUR'}}</li>
+                             <!-- <li class="list-item">Motor: {{ auto.motor_auta?.gorivo_motora}} gorivo / {{ auto.motor_auta?.snaga_motora}} konja - {{ auto.motor_auta?.potrosnja_motora}} l/100km</li> -->
+                         </ul>
+                         <div class="pull-right">
+                                <button class="btn btn-xs btn-warning"(click)="editAuto(auto.id)">Edit </button>
+                                <button class="btn btn-xs btn-danger"(click)="izbrisiAuto(auto.id)">Delete </button>
+                        </div>
+                        </div>
+                      </div>
+                </div>
+                                
+                 
+                 
+                 
+                        </div>
+
+
+                <div class="col-md-5 well well-sm">
+
+                        <app-dodavanje-automobila (update) ="getAutomobil()"  [selectedAutomobil]="selectedAutomobil" ></app-dodavanje-automobila>
+                </div>
+        </div>
+</div>
+
+
+

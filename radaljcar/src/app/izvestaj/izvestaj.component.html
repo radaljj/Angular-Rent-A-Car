@@ -1,0 +1,39 @@
+<h3>Izvestaj automobila </h3>
+
+
+
+
+
+
+
+<table class="table">
+<tr>
+    <td>Najstariji auto na stanju</td>
+    <td>{{najstariji?.brend_auta}}- {{najstariji?.model_auta}} / {{najstariji?.godina_auta}}</td>
+</tr>
+<tr>
+    <td>Najnoviji auto na stanju</td>
+    <td>{{najnoviji?.brend_auta}}- {{najnoviji?.model_auta}} / {{najnoviji?.godina_auta}}</td>
+</tr>
+<tr>
+    <td>Najskuplji auto na stanju</td>
+    <td>{{najskuplji?.brend_auta}}- {{najskuplji?.model_auta}} / {{najskuplji?.cena_auta | currency:'EUR'}}</td>
+</tr>
+
+
+<tr>
+    <td>Najjeftiniji auto na stanju</td>
+    <td>{{najjeftiniji?.brend_auta}}- {{najjeftiniji?.model_auta}} / {{najjeftiniji?.cena_auta | currency:'EUR'}}</td>
+</tr>
+
+
+
+<tr>
+    <td>Ukuna vrednost automobila na stanju</td>
+    <td>{{total | currency: 'EUR'}}</td>
+</tr>
+
+
+
+
+</table>

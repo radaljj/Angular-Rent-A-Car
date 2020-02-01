@@ -1,0 +1,30 @@
+{
+  "automobili": [
+    {
+      "id": 1,
+      "brend_auta": "Opel",
+      "model_auta": "Grandland",
+      "godina_auta": 2019,
+      "cena_auta": 25000,
+      "kilometraza_auta": 2500,
+      "Motor": {
+        "gorivo_motora": "dizel",
+        "snaga_motora": 130,
+        "potrosnja_motora": 9
+      }
+    },
+    {
+      "brend_auta": "Toyota",
+      "model_auta": "Yaris",
+      "godina_auta": 2013,
+      "cena_auta": 4250,
+      "kilometraza_auta": 80000,
+      "Motor": {
+        "gorivo_motora": "benzin",
+        "snaga_motora": 90,
+        "potrosnja_motora": 9
+      },
+      "id": 2
+    }
+  ]
+}
